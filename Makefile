@@ -13,12 +13,12 @@ DOCKER=docker
 PWD = $(shell pwd)
 DOCKERARGS = run --rm -v $(PWD):/src -w /src
 #
-GHDL      = $(DOCKER) $(DOCKERARGS) ghdl/synth:beta ghdl
+GHDL      = $(DOCKER) $(DOCKERARGS) hdlc/ghdl:yosys ghdl
 GHDLSYNTH = ghdl
-YOSYS     = $(DOCKER) $(DOCKERARGS) ghdl/synth:beta yosys
-NEXTPNR   = $(DOCKER) $(DOCKERARGS) ghdl/synth:nextpnr-ecp5 nextpnr-ecp5
-ECPPACK   = $(DOCKER) $(DOCKERARGS) ghdl/synth:trellis ecppack
-OPENOCD   = $(DOCKER) $(DOCKERARGS) --device /dev/bus/usb ghdl/synth:prog openocd
+YOSYS     = $(DOCKER) $(DOCKERARGS) hdlc/ghdl:yosys yosys
+NEXTPNR   = $(DOCKER) $(DOCKERARGS) hdlc/nextpnr:ecp5 nextpnr-ecp5
+ECPPACK   = $(DOCKER) $(DOCKERARGS) hdlc/prjtrellis ecppack
+OPENOCD   = $(DOCKER) $(DOCKERARGS) --device /dev/bus/usb hdlc/prog openocd
 
 
 # OrangeCrab with ECP85
